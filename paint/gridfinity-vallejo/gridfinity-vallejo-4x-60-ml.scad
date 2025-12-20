@@ -1,6 +1,6 @@
 include <../../gridfinity_openscad/gridfinity_modules.scad>
 
-diameter = 37;
+diameter = 36.5;
 height = 97;
 
 difference() {
