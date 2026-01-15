@@ -1,3 +1,6 @@
 [submodule "gridfinity_openscad"]
 	path = gridfinity_openscad
 	url = git@github.com:vector76/gridfinity_openscad.git
+[submodule "gridfinity_extended_openscad"]
+	path = gridfinity_extended_openscad
+	url = git@github.com:ostat/gridfinity_extended_openscad.git
