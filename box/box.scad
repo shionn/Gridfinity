@@ -16,9 +16,17 @@ p = wy*42+gap*2+m*2+3;
 h = wh*7+4.4-m*2 + ground;
 
 
-translate([-42*wx/2,-42*wy/2,-h/2+ground+m])
-	translate([42/2,42/2,0])
+translate([-42*wx/2,-42*wy/2,-h/2+ground+m]) {
+	translate([42/2,42/2,0]) 
 		frame_plain(wx,wy);
+	translate([-gap, -gap, 0]) 
+		difference() {
+			cube([wx*42+gap*2,wy*42+gap*2,4.5]);
+			translate([42/2+gap,42/2+gap,0]) 
+				hull() 
+					frame_plain(wx,wy);
+		}
+}
 
 minkowski() {
 	difference() {
@@ -28,7 +36,6 @@ minkowski() {
 	}
 	sphere(m, $fn=32);
 }
-
 
 
 
