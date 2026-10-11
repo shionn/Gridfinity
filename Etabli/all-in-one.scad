@@ -16,6 +16,7 @@ translate([200,320,0]) douille_hex();
 translate([300,320,0]) douille_facom_half_inch();
 translate([400,320,0]) printer_pump();
 translate([500,320,0]) all_meches();
+allen_key();
 
 translate([  0,440,0]) douille_roue();
 translate([ 50,440,0]) douille_torks_t(); 
@@ -43,24 +44,35 @@ translate([ 0,1350,0]) pince_rivet();
 translate([50,1350,0]) rallonge_half_inch_long();
 
 //*/
+other_flat_key();
 
-allen_key();
+module other_flat_key() {
+	z = 10;
+	difference() {
+		base(3,9,z);
+		translate([0,0,z*7/2+7])
+			cube([42*3-8, 42*9-8,z*7], center=true);
+		translate([-100,0,-10])
+			cube(200);
+	}
+}
 
 module allen_key() {
+	// c'est de la merde
 	z=5;
 	difference() {
-		base(1,2,z);
-		translate([-12,-42+8.5,6]) {	cylinder(z*7,9/2,9/2, $fn=6);
-		translate([0,10.5,0]) {			cylinder(z*7,8/2,8/2, $fn=6);
-		translate([0,9.5,0]) {			cylinder(z*7,7/2,7/2, $fn=6);
-		translate([0,8.5,0]) {			cylinder(z*7,6/2,6/2, $fn=6);
-		translate([0,7.5,0]) {			cylinder(z*7,5/2,5/2, $fn=6);
-		translate([0,7,0]) {		cylinder(z*7,4.5/2,4.5/2, $fn=6); //3.5
-		translate([0,6.5,0]) {			cylinder(z*7,4/2,4/2, $fn=6); //3
-		translate([0,6,0]) {		cylinder(z*7,3.5/2,3.5/2, $fn=6); //2.5
-		translate([0,5.5,0]) {			cylinder(z*7,3/2,3/2, $fn=6); //2
-		translate([0,5,0]) {		cylinder(z*7,2.5/2,2.5/2, $fn=6);
-		translate([0,4.5,0]) {			cylinder(z*7,2/2,2/2, $fn=6);
+		base(2,1,z);
+		translate([-42+8.5, 12, 6]) {		cylinder(z*7, 10/2, 10/2, $fn=6); // 8
+		translate([10.5, 0, 0]) {				cylinder(z*7,  9/2,  9/2, $fn=6); // 7
+		translate([ 9.5, 0, 0]) {				cylinder(z*7,  8/2,  8/2, $fn=6); // 6
+		translate([ 8.5, 0, 0]) {				cylinder(z*7,  7/2,  7/2, $fn=6); // 5
+		translate([ 7.5, 0, 0]) {				cylinder(z*7,  6/2,  6/2, $fn=6); // 4
+		translate([ 7  , 0, 0]) {				cylinder(z*7,5.5/2,5.5/2, $fn=6); // 3.5
+		translate([ 6.5, 0, 0]) {				cylinder(z*7,  5/2,  5/2, $fn=6); // 3
+		translate([ 6  , 0, 0]) {				cylinder(z*7,4.5/2,4.5/2, $fn=6); // 2.5
+		translate([ 5.5, 0, 0]) {				cylinder(z*7,  4/2,  4/2, $fn=6); // 2
+		translate([ 5  , 0, 0]) {				cylinder(z*7,3.5/2,3.5/2, $fn=6); // 1.5
+		translate([ 4.5, 0, 0]) {				cylinder(z*7,  3/2,  3/2, $fn=6); // 1
 		}}}}}}}}}}}
 	}
 }
